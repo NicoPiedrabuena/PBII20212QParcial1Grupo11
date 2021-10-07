@@ -2,6 +2,7 @@ package dominio;
 
 public class Gaseosa extends Bebida {
 
+
     private Double promocion;
     private TipoGaseosa tipoDeGaseosa;
     private Boolean enPromocion;
@@ -56,5 +57,5 @@ public class Gaseosa extends Bebida {
 		this.promocion = promocion;
 	}
 
-
 }
+

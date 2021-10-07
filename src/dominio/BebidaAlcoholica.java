@@ -2,6 +2,7 @@ package dominio;
 
 public class BebidaAlcoholica extends Bebida {
 
+
 	private Double gradoDeAlchol;
 	private TipoAlcohol tipoAlcohol;
 
@@ -25,6 +26,7 @@ public class BebidaAlcoholica extends Bebida {
 	public Double getGradoDeAlchol() {
 		return gradoDeAlchol;
 	}
+
 
 	public void setGradoDeAlchol(Double gradoDeAlchol) {
 		this.gradoDeAlchol = gradoDeAlchol;

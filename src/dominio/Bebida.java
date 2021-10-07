@@ -3,6 +3,7 @@ package dominio;
 public class Bebida {
 
 	private Integer id = 0;
+
 	private Double precio;
 	private String marca;
 	private CantidadMiliLitros mililitros;
@@ -13,6 +14,7 @@ public class Bebida {
 		this.precio = precio;
 		this.marca = marca;
 		this.mililitros = mililitros;
+
 
 	}
 
@@ -51,6 +53,6 @@ public class Bebida {
 	public void setMililitros(CantidadMiliLitros mililitros) {
 		this.mililitros = mililitros;
 	}
-	
+
 
 }
