@@ -7,8 +7,6 @@ import dominio.Almacen;
 import dominio.BebidaAlcoholica;
 import dominio.Gaseosa;
 
-
-
 public class MostradorAlmacen {
 
 	public static void main(String[] args) {
@@ -18,47 +16,52 @@ public class MostradorAlmacen {
 		Almacen nuevoAlmacen = new Almacen();
 		BebidaAlcoholica nuevaBebida = null;
 		Gaseosa nuevaGaseosa = null;
-		Agua nuevaAgua =null;
+		Agua nuevaAgua = null;
 		int opcion = 0;
 
 		// FALTA COMPLETAR ALGUNOS TEST , TERMINAR LA INTERFAZ, REE VER LAS PROMOCIONES,
 		// METODOS Y VER EL TEMA ENUMS
 
 		do {
-			
+
 			System.out.println("INGRESE 1 PARA GUARDAR UNA GASEOSA");
 			System.out.println("INGRESE 2 PARA GUARDAR UNA BEBIDA CON ALCOHOL");
 			System.out.println("INGRESE 3 PARA GUARDAR AGUA");
 			System.out.println("INGRESE 4 PARA VER LO QUE ESTA TOMANDO");
 			System.out.println("INGRESE 5 PARA VER LA LISTA DE PRECIOS");
 			System.out.println("INGRESE 6 PARA ELIMINAR UNA BEBIDA ");
-			
-			
+
 			opcion = teclado.nextInt();
-			//aca van !!!
-			//AGREGAR LAS VARIABLES NECESRIAAS
-			
+
+			// AGREGAR LAS VARIABLES NECESaRIAS
+			// AGREGAR LAS VARIABLES NECESaRIAS
+			// AGREGAR LAS VARIABLES NECESaRIAS
+			// AGREGAR LAS VARIABLES NECESaRIAS
+			String marca;
 			Double cantidad;
-			
+			Double precio;
+			Integer id;
+			Double porcentajeAzucar;
+
 			switch (opcion) {
 			case 1:
 				System.out.println("BEBIDA SIN ALCOHOL");
 
 				System.out.println("INGRESE SU CANDIDA DE ML");
-				 cantidad = teclado.nextDouble();
+				cantidad = teclado.nextDouble();
 
 				System.out.println("INGRESE SU PRECIO");
-				Double precio = teclado.nextDouble();
+				precio = teclado.nextDouble();
 
 				System.out.println("INGRESE SU MARCA");
-				String marca = teclado.next();
+				marca = teclado.next();
 
 				// completar para que se recorra solo
 				System.out.println("ID");
-				Integer id = teclado.nextInt();
+				id = teclado.nextInt();
 
 				System.out.println("INGRESE LA CANTIDAD DE AZUCAR");
-				Double porcentajeAzucar = teclado.nextDouble();
+				porcentajeAzucar = teclado.nextDouble();
 
 				// ree ver la promocion , deberia dar solo el precio de la promo
 
@@ -75,19 +78,19 @@ public class MostradorAlmacen {
 				System.out.println("BEBIDA CON ALCOHOL");
 
 				System.out.println("INGRESE SU CANDIDA DE ML");
-				Double cantidad2 = teclado.nextDouble();
-				
+				cantidad = teclado.nextDouble();
+
 				System.out.println("INGRESE SU PRECIO");
-				Double precio2 = teclado.nextDouble();
+				precio = teclado.nextDouble();
 
 				System.out.println("INGRESE SU MARCA");
-				String marca2 = teclado.next();
+				marca = teclado.next();
 
 				// completar para que se recorra solo
 				System.out.println("id");
-				Integer id2 = teclado.nextInt();
+				id = teclado.nextInt();
 
-				nuevaBebida = new BebidaAlcoholica(cantidad2, precio2, marca2, id2);
+				nuevaBebida = new BebidaAlcoholica(cantidad, precio, marca, id);
 				if (nuevoAlmacen.agregarProductoConAlchohol(nuevaBebida)) {
 					System.out.println("BEBIDA GUARDADA");
 				} else {
@@ -106,29 +109,28 @@ public class MostradorAlmacen {
 				break;
 			case 3:
 				System.out.println("AGREGAR AGUA");
-				//Double cantidad, Double precio, String marca, Integer id
+				// Double cantidad, Double precio, String marca, Integer id
 				System.out.println("INGRESE LA CANTIDAD DE ML DE LA BOTELLA");
-				double cantidad3 =teclado.nextDouble();
-				
+				cantidad = teclado.nextDouble();
+
 				System.out.println("INGRESE SU PRECIO");
-				double precio3 = teclado.nextDouble();
+				precio = teclado.nextDouble();
 				System.out.println("INGRESAR LA MARCA");
-				String marca3= teclado.next();
-				
+				marca = teclado.next();
+
 				// completar para que se recorra solo
 				System.out.println("INGRESE LA ID DE LA BEBIDA");
-				Integer id3= teclado.nextInt();
-				
-				nuevaAgua = new Agua(cantidad3, precio3, marca3, id3);
-				
-				
-				//if para ver si se puede guardar o no 
-				// nuevoAlmacen.mostrarBebida();				
-				//if para ver si se puede guardar o no 			
-				// nuevoAlmacen.mostrarBebida();				
-				//if para ver si se puede guardar o no 			
+				id = teclado.nextInt();
+
+				nuevaAgua = new Agua(cantidad, precio, marca, id);
+
+				// if para ver si se puede guardar o no
 				// nuevoAlmacen.mostrarBebida();
-				
+				// if para ver si se puede guardar o no
+				// nuevoAlmacen.mostrarBebida();
+				// if para ver si se puede guardar o no
+				// nuevoAlmacen.mostrarBebida();
+
 				break;
 
 			case 4:
@@ -151,7 +153,7 @@ public class MostradorAlmacen {
 
 				if (nuevoAlmacen.eliminarBebida(bebidaAEliminar)) {
 					System.out.println("BEBIDA ELIMINADA");
-				} else { 
+				} else {
 					System.out.println("NO SE PUDO ELIMINAR LA BEBIDA");
 				}
 
@@ -160,11 +162,7 @@ public class MostradorAlmacen {
 				System.out.println("OPCION INVALIDA");
 				break;
 			}
-
 		} while (opcion != 9);
-	}
-
-
 	}
 
 }

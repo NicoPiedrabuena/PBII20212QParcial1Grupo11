@@ -2,15 +2,14 @@ package dominio;
 
 public class Bebida {
 
-	//private static Integer idActual = 1;
-	private Integer id;
+	
+	private Integer id = 0;
 	private Double cantidad;
 	private Double precio;
 	private String marca;
 
-	public Bebida(Double cantidad, Double precio, String marca,Integer id) {
-		this.id=id;
-		//this.id = idActual++;
+	public Bebida(Double cantidad, Double precio, String marca) {
+		this.id = this.id++; //PARA QUE TODAS LAS BEBIDAS DE INICIALICEN CON UN ID DISTINTO
 		this.cantidad = cantidad;
 		this.precio = precio;
 		this.marca = marca;
