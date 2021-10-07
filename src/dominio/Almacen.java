@@ -95,7 +95,7 @@ public class Almacen {
 
 	}
 
-	// despues en la interfaz va agregar siso
+	
 	public Boolean siEsMayor(Integer edad) {
 		Boolean puedeTomar = null;
 

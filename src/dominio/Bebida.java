@@ -7,12 +7,14 @@ public class Bebida {
 	private Double cantidad;
 	private Double precio;
 	private String marca;
+	private TipoAlcohol tipoAlcohol;
 
-	public Bebida(Double cantidad, Double precio, String marca) {
+	public Bebida(Double cantidad, Double precio, String marca, TipoAlcohol tipoAlcohol) {
 		this.id = this.id++; //PARA QUE TODAS LAS BEBIDAS DE INICIALICEN CON UN ID DISTINTO
 		this.cantidad = cantidad;
 		this.precio = precio;
 		this.marca = marca;
+		this.tipoAlcohol = tipoAlcohol;
 	}
 
 	public Integer getId() {

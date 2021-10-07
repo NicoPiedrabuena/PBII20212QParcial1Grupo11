@@ -10,8 +10,8 @@ public class Gaseosa extends Bebida {
 
     // RE VER LA PROMOCION
 
-    public Gaseosa(Double cantidad, Double precio, String marca, Integer id, Double porcentajeAzucar) {
-        super(cantidad, precio, marca, id);
+    public Gaseosa(Double cantidad, Double precio, String marca, Double porcentajeAzucar) {
+        super(cantidad, precio, marca);
         this.porcentajeAzucar = porcentajeAzucar;
         // this.promocion = promocion;   REE VERLO
     }

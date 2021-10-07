@@ -6,6 +6,7 @@ import dominio.Agua;
 import dominio.Almacen;
 import dominio.BebidaAlcoholica;
 import dominio.Gaseosa;
+import dominio.TipoAlcohol;
 
 public class MostradorAlmacen {
 
@@ -30,6 +31,8 @@ public class MostradorAlmacen {
 			System.out.println("INGRESE 4 PARA VER LO QUE ESTA TOMANDO");
 			System.out.println("INGRESE 5 PARA VER LA LISTA DE PRECIOS");
 			System.out.println("INGRESE 6 PARA ELIMINAR UNA BEBIDA ");
+			//AGREGAR OPCION BUSCAR BEBIDA 
+			
 
 			opcion = teclado.nextInt();
 
@@ -42,6 +45,7 @@ public class MostradorAlmacen {
 			Double precio;
 			Integer id;
 			Double porcentajeAzucar;
+			TipoAlcohol tipoAlcohol; 
 
 			switch (opcion) {
 			case 1:
@@ -57,15 +61,20 @@ public class MostradorAlmacen {
 				marca = teclado.next();
 
 				// completar para que se recorra solo
-				System.out.println("ID");
-				id = teclado.nextInt();
+				// MOSTRAR ID DE LA BEBIDAS
 
 				System.out.println("INGRESE LA CANTIDAD DE AZUCAR");
 				porcentajeAzucar = teclado.nextDouble();
 
 				// ree ver la promocion , deberia dar solo el precio de la promo
+				
+				//AGREGARMENU -TIPO DE GASEOSA
+				//AGREGARMENU -TIPO DE GASEOSA
+				//AGREGARMENU -TIPO DE GASEOSA
+				//AGREGARMENU -TIPO DE GASEOSA
+				//AGREGARMENU -TIPO DE GASEOSA
 
-				nuevaGaseosa = new Gaseosa(cantidad, precio, marca, id, porcentajeAzucar);
+				nuevaGaseosa = new Gaseosa(cantidad, precio, marca, porcentajeAzucar);
 
 				if (nuevoAlmacen.agregarProductoSinAlcohol(nuevaBebida)) {
 					System.out.println("BEBIDA GUARDADA");
@@ -86,21 +95,45 @@ public class MostradorAlmacen {
 				System.out.println("INGRESE SU MARCA");
 				marca = teclado.next();
 
-				// completar para que se recorra solo
-				System.out.println("id");
-				id = teclado.nextInt();
-
-				nuevaBebida = new BebidaAlcoholica(cantidad, precio, marca, id);
+				do {
+					
+					System.out.println("INGRESE EL TIPO DE BEBIDA ALCOHOLICA");//CAMBIAR
+					//PONER OPCIONES
+					//PONER OPCIONES
+					//PONER OPCIONES
+					//PONER OPCIONES
+					char opcionAlcohol = teclado.next().charAt(0);
+					switch (opcionAlcohol) {
+					case 1:
+						tipoAlcohol = TipoAlcohol.CERVEZA;
+						break;
+					case 2:
+						tipoAlcohol = TipoAlcohol.FERNET;
+						break;
+					case 3:
+						tipoAlcohol = TipoAlcohol.GANCIA;
+						break;
+					case 4:
+						tipoAlcohol = TipoAlcohol.VODKA;
+						break;
+					case 0:
+						System.out.println("FIN");
+						break;
+					default:
+						break;
+					}
+				}while (opcion != 0);
+				nuevaBebida = new BebidaAlcoholica(cantidad, precio, marca, tipoAlcohol);
 				if (nuevoAlmacen.agregarProductoConAlchohol(nuevaBebida)) {
 					System.out.println("BEBIDA GUARDADA");
 				} else {
-					System.out.println("NO SE PUDO GURADAR");
+					System.out.println("NO SE PUDO GUARDAR");
 				}
 
 				System.out.println("INGRESE SU EDAD");
 				Integer edad = teclado.nextInt();
 
-				if (nuevoAlmacen.siEsMayor(edad) == true) {
+				if (nuevoAlmacen.siEsMayor(edad)) {
 					System.out.println("USTED PUEDE CONSUMIR BEBIDAS ALCOHOLICAS");
 				} else {
 					System.out.println("USTED NO TIENE NO TIENE LA EDAD NECESARIA PARA BEBER");
@@ -118,9 +151,6 @@ public class MostradorAlmacen {
 				System.out.println("INGRESAR LA MARCA");
 				marca = teclado.next();
 
-				// completar para que se recorra solo
-				System.out.println("INGRESE LA ID DE LA BEBIDA");
-				id = teclado.nextInt();
 
 				nuevaAgua = new Agua(cantidad, precio, marca, id);
 
@@ -134,9 +164,8 @@ public class MostradorAlmacen {
 				break;
 
 			case 4:
-				System.out.println("VER LO QUE ESTA TOMANDO");
 
-				System.out.println("USTED ESTA BEBIENDO UN +" + nuevoAlmacen.mostrarBebida());
+				System.out.println("USTED ESTA BEBIENDO UN " + nuevoAlmacen.mostrarBebida());
 
 				break;
 
@@ -146,7 +175,10 @@ public class MostradorAlmacen {
 
 				nuevoAlmacen.calcularPrecioDeLaBebida(marcaABuscar);
 				break;
-
+				//METODO INCOMPLETO !HAY QUE TERMINARLO!
+				//METODO INCOMPLETO !HAY QUE TERMINARLO!
+				//METODO INCOMPLETO !HAY QUE TERMINARLO!
+				//METODO INCOMPLETO !HAY QUE TERMINARLO!
 			case 6:
 				System.out.println("INGRESE EL ID DE LA BEBIDA A ELEMINAR");
 				Integer bebidaAEliminar = teclado.nextInt();
@@ -158,6 +190,10 @@ public class MostradorAlmacen {
 				}
 
 				break;
+				//AGREGAR CASE 7 BUSCARBEBIDA POR ID
+				//AGREGAR CASE 7 BUSCARBEBIDA POR ID
+				//AGREGAR CASE 7 BUSCARBEBIDA POR ID
+				//AGREGAR CASE 7 BUSCARBEBIDA POR ID
 			default:
 				System.out.println("OPCION INVALIDA");
 				break;
