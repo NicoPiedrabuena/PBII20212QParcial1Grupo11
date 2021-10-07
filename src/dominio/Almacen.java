@@ -23,11 +23,11 @@ public class Almacen {
 		return seAgregoONo;
 	}
 
-	public boolean eliminarBebida(Integer id) {
+	public boolean comprarBebida(String marca , CantidadMiliLitros mililitros) {
 		boolean eliminadoONo = false;
 		for (int i = 0; i < estanteria.length; i++) {
 			for (int j = 0; j < estanteria.length; j++) {
-				if (estanteria[i][j] != null && estanteria[i][j].getId().equals(id)) {
+				if (estanteria[i][j] != null && estanteria[i][j].getMarca().equals(marca) && estanteria[i][j].getMililitros().equals(mililitros)) {
 					estanteria[i][j] = null;
 					eliminadoONo = true;
 					break;
@@ -73,5 +73,11 @@ public class Almacen {
 		}
 		return puedeTomar;
 	}
+	
+
+	// calcular promocion de cada bebida
+   /* public Double getPromocion(String marca) {
+        return promocion;
+    }*/
 
 }

@@ -46,12 +46,12 @@ public class MostradorAlmacen {
 			Double precio;
 			Integer id;
 			Double porcentajeAzucar;
-			TipoAlcohol tipoAlcohol; 
+			TipoAlcohol tipoAlcohol = null; 
 			TipoGaseosa tipoGaseosa; 
 
 			switch (opcion) {
 			case 1:
-				System.out.println("BEBIDA SIN ALCOHOL");
+				System.out.println("BEBIDA GASEOSA");
 				
 				//AGREGAR ENUM DE ML DE GASEOSA 500ML, 1L, 2L
 				//AGREGAR ENUM DE ML DE GASEOSA 500ML, 1L, 2L
@@ -93,17 +93,17 @@ public class MostradorAlmacen {
 					break;
 				default:
 					break;
-				} while (opcion != 0);
+				}} while (opcion != 0);
+				
 
-				nuevaGaseosa = new Gaseosa(cantidad, precio, marca, tipoGaseosa);  
+				nuevaGaseosa = new Gaseosa(cantidad, precio, marca);  
 
-				if (nuevoAlmacen.agregarProductoSinAlcohol(nuevaBebida)) {
+				if (nuevoAlmacen.agregarProducto(nuevaBebida)) {
 					System.out.println("BEBIDA GUARDADA");
 				} else {
 					System.out.println("NO SE PUDO GURADAR");
 				}
-				break; 
-
+				break;
 			case 2:
 				System.out.println("BEBIDA CON ALCOHOL");
 
@@ -150,8 +150,8 @@ public class MostradorAlmacen {
 						break;
 					}
 				}while (opcion != 0);
-				nuevaBebida = new BebidaAlcoholica(cantidad, precio, marca, tipoAlcohol);
-				if (nuevoAlmacen.agregarProductoConAlchohol(nuevaBebida)) {
+				nuevaBebida = new BebidaAlcoholica(tipoAlcohol, cantidad, precio, marca);
+				if (nuevoAlmacen.agregarProducto(nuevaBebida)) {
 					System.out.println("BEBIDA GUARDADA");
 				} else {
 					System.out.println("NO SE PUDO GUARDAR");
@@ -177,8 +177,8 @@ public class MostradorAlmacen {
 				marca = teclado.next();
 
 
-				nuevaAgua = new Agua(cantidad, precio, marca, id);
-                if(nuevoAlmacen.agregarProductoSinAlcohol(nuevaAgua)) {
+				nuevaAgua = new Agua(cantidad, precio, marca);
+                if(nuevoAlmacen.agregarProducto(nuevaBebida)) {
 				    System.out.println("AGUA GUARDADA");	
 				} else {
 					System.out.println("NO SE PUDO GUARDAR");
@@ -202,14 +202,14 @@ public class MostradorAlmacen {
 				System.out.println("INGRESE UNA MARCA PARA SABER SU PRECIO ");
 				String marcaABuscar = teclado.next();
 
-				nuevoAlmacen.calcularPrecioDeLaBebida(marcaABuscar);
+				
 				break;
 				//METODO INCOMPLETO !HAY QUE TERMINARLO!
 				//METODO INCOMPLETO !HAY QUE TERMINARLO!
 				//METODO INCOMPLETO !HAY QUE TERMINARLO!
 				//METODO INCOMPLETO !HAY QUE TERMINARLO!
 			case 6:
-				System.out.println("INGRESE EL ID DE LA BEBIDA A ELEMINAR");
+				System.out.println("INGRESE EL ID DE LA BEBIDA A ELIMINAR");
 				Integer bebidaAEliminar = teclado.nextInt();
 
 				if (nuevoAlmacen.eliminarBebida(bebidaAEliminar)) {
@@ -226,8 +226,10 @@ public class MostradorAlmacen {
 			default:
 				System.out.println("OPCION INVALIDA");
 				break;
-			}
-		} while (opcion != 9);
-	}
-
-
+				}
+			} 
+		while (opcion != 9);	
+		
+		}	
+		
+}

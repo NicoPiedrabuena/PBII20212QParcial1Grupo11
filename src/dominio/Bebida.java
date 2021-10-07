@@ -7,14 +7,15 @@ public class Bebida {
 	private Double cantidad; //enum de cc 
 	private Double precio;
 	private String marca;
-	private TipoAlcohol tipoAlcohol;
+	private CantidadMiliLitros mililitros;
 
-	public Bebida(Double cantidad, Double precio, String marca, TipoAlcohol tipoAlcohol) {
+
+	public Bebida(CantidadMiliLitros mililitros, Double precio, String marca) {
 		this.id = this.id++; //PARA QUE TODAS LAS BEBIDAS DE INICIALICEN CON UN ID DISTINTO
-		this.cantidad = cantidad;
 		this.precio = precio;
 		this.marca = marca;
-		this.tipoAlcohol = tipoAlcohol;
+		this.mililitros = mililitros;
+		
 	}
 
 	public Integer getId() {
@@ -52,6 +53,15 @@ public class Bebida {
 	public String toString() {
 		return "Bebida [id=" + id + ", cantidad=" + cantidad + ", precio=" + precio + ", marca=" + marca + "]";
 	}
+
+	public CantidadMiliLitros getMililitros() {
+		return mililitros;
+	}
+
+	public void setMililitros(CantidadMiliLitros mililitros) {
+		this.mililitros = mililitros;
+	}
+	
 
 }
 
