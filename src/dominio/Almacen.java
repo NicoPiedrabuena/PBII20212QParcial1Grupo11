@@ -8,24 +8,8 @@ public class Almacen {
 		estanteria = new Bebida[10][10];
 	}
 
-	// falta agregar el tipo de gaseosa
-	public boolean agregarProductoSinAlcohol(Bebida bebidaa) {
-		boolean seAgregoONo = false;
-		for (int i = 0; i < estanteria.length; i++) {
-			for (int j = 0; j < estanteria.length; j++) {
-				if (estanteria[i][j] == null) {
-					estanteria[i][j] = bebidaa;
-					seAgregoONo = true;
-					break;
-				}
-			}
-		}
-		return seAgregoONo;
-
-	}
-
-	// falta agregar el tipo de alchol
-	public boolean agregarProductoConAlchohol(Bebida bebidaa) {
+	
+	public boolean agregarProducto(Bebida bebidaa) {		
 		boolean seAgregoONo = false;
 		for (int i = 0; i < estanteria.length; i++) {
 			for (int j = 0; j < estanteria.length; j++) {
@@ -53,49 +37,34 @@ public class Almacen {
 		return eliminadoONo;
 	}
 
-	// terminar de arreglarlo bien
+	// terminar de arreglarlo bien -ARREGLADO-
 	// MUESTRA LO QUE HAY EN EL ESTANTE - MARCOS
-	public String mostrarBebida(Integer fila, Integer columna) {
-		String valorBebida = " ";
+	public String mostrarEstante(Integer fila, Integer columna) {
+		String informacion = " ";
 
 		if (estanteria[fila][columna] != null) {
-			valorBebida = "fila =" + fila + ", columa =" + columna + "bebida = " + estanteria[fila][columna].toString();
+			informacion = "fila =" + fila + ", columa =" + columna + "bebida = " + estanteria[fila][columna].toString();
 		}
-		return valorBebida;
-	}
-
-	// POSIBLE METODO "buscarBebidaPorId" PORQUE ME PARECIO QUE FALTABA - MARCOS
-	public Bebida buscarBebidaPorId(Integer id) {
-		Bebida bebida = null;
-		for (int i = 0; i < estanteria.length; i++) {
-			for (int j = 0; j < estanteria.length; j++) {
-				if (estanteria[i][j] != null && estanteria[i][j].getId().equals(id)) {
-					bebida = estanteria[i][j];
-					break;
-				}
-			}
-		}
-		return bebida;
+		return informacion;
 	}
 
 	// modificar
-	//NO SE QUE HAY QUE MODIFICAR - MARCOS
+	// NO SE QUE HAY QUE MODIFICAR - MARCOS
+	// PARA MI YA ESTA BIEN - MARCOS
 	public Double calcularPrecioDeLaBebida(String marca) {
-		double precioTotal = 0;
+		double precio = 0;
 
 		for (int i = 0; i < estanteria.length; i++) {
 			for (int j = 0; j < estanteria.length; j++) {
 				if (estanteria[i][j] != null && estanteria[i][j].equals(marca)) {
-
-					precioTotal += estanteria[i][j].getPrecio();
+					precio = estanteria[i][j].getPrecio();
+					break;
 				}
 			}
 		}
-		return precioTotal;
-
+		return precio;
 	}
 
-	
 	public Boolean siEsMayor(Integer edad) {
 		Boolean puedeTomar = null;
 

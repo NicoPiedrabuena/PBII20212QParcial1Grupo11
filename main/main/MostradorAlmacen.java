@@ -42,7 +42,7 @@ public class MostradorAlmacen {
 			// AGREGAR LAS VARIABLES NECESaRIAS
 			// AGREGAR LAS VARIABLES NECESaRIAS
 			String marca;
-			Double cantidad;
+			Double cantidad; //CAMBIAR POR ENUM
 			Double precio;
 			Integer id;
 			Double porcentajeAzucar;

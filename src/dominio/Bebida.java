@@ -4,7 +4,7 @@ public class Bebida {
 
 	
 	private Integer id = 0;
-	private Double cantidad;
+	private Double cantidad; //enum de cc 
 	private Double precio;
 	private String marca;
 	private TipoAlcohol tipoAlcohol;
