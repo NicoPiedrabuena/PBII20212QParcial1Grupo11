@@ -2,23 +2,20 @@ package dominio;
 
 public class Gaseosa extends Bebida {
 
-
-    private Double porcentajeAzucar;
     private Double promocion;
-    private CantidadMiliLitros mililitros;
     private TipoGaseosa tipoDeGaseosa;
     private Boolean enPromocion;
 
-
+	public Gaseosa(Double precio, String marca, CantidadMiliLitros mililitros) {
+		super(precio, marca, mililitros);
+		this.enPromocion = false;
+		// TODO Auto-generated constructor stub
+	}
 
 	// RE VER LA PROMOCION
 
 
-    public Gaseosa( CantidadMiliLitros mililitros, Double precio, String marca) {
-        super(mililitros , precio, marca);
-      this.enPromocion = false;
-     
-    }
+   
 
 	public Double getPrecio() {
 		if(getEnPromocion()) {

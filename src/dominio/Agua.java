@@ -1,9 +1,11 @@
 package dominio;
 
 public class Agua extends Bebida {
-	  public Agua(Double cantidad, Double precio, String marca) {
-	        super(cantidad, precio, marca);
-	        
-	    }
+
+	public Agua(Double precio, String marca, CantidadMiliLitros mililitros) {
+		super(precio, marca, mililitros);
+		// TODO Auto-generated constructor stub
+	}
+	
 
 }
