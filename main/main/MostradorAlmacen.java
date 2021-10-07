@@ -6,8 +6,6 @@ import dominio.Agua;
 import dominio.Almacen;
 import dominio.BebidaAlcoholica;
 import dominio.Gaseosa;
-import dominio.TipoAlcohol;
-import dominio.TipoGaseosa;
 
 public class MostradorAlmacen {
 
@@ -32,169 +30,107 @@ public class MostradorAlmacen {
 			System.out.println("INGRESE 4 PARA VER LO QUE ESTA TOMANDO");
 			System.out.println("INGRESE 5 PARA VER LA LISTA DE PRECIOS");
 			System.out.println("INGRESE 6 PARA ELIMINAR UNA BEBIDA ");
-			//AGREGAR OPCION BUSCAR BEBIDA 
-			
 
 			opcion = teclado.nextInt();
+			// aca van !!!
+			// AGREGAR LAS VARIABLES NECESRIAAS
 
-			// AGREGAR LAS VARIABLES NECESaRIAS
-			// AGREGAR LAS VARIABLES NECESaRIAS
-			// AGREGAR LAS VARIABLES NECESaRIAS
-			// AGREGAR LAS VARIABLES NECESaRIAS
-			String marca;
-			Double cantidad; //CAMBIAR POR ENUM
-			Double precio;
-			Integer id;
-			Double porcentajeAzucar;
-			TipoAlcohol tipoAlcohol; 
-			TipoGaseosa tipoGaseosa; 
+			Double cantidad;
 
 			switch (opcion) {
 			case 1:
 				System.out.println("BEBIDA SIN ALCOHOL");
-				
-				//AGREGAR ENUM DE ML DE GASEOSA 500ML, 1L, 2L
-				//AGREGAR ENUM DE ML DE GASEOSA 500ML, 1L, 2L
-				//AGREGAR ENUM DE ML DE GASEOSA 500ML, 1L, 2L
-				//AGREGAR ENUM DE ML DE GASEOSA 500ML, 1L, 2L
-				
+
 				System.out.println("INGRESE SU CANDIDA DE ML");
 				cantidad = teclado.nextDouble();
 
 				System.out.println("INGRESE SU PRECIO");
-				precio = teclado.nextDouble();
+				Double precio = teclado.nextDouble();
 
 				System.out.println("INGRESE SU MARCA");
-				marca = teclado.next();
+				String marca = teclado.next();
 
 				// completar para que se recorra solo
-				// MOSTRAR ID DE LA BEBIDAS
+				System.out.println("ID");
+				Integer id = teclado.nextInt();
 
+				System.out.println("INGRESE LA CANTIDAD DE AZUCAR");
+				Double porcentajeAzucar = teclado.nextDouble();
 
 				// ree ver la promocion , deberia dar solo el precio de la promo
-				
-				
-				do {
-				
-				System.out.println("INGRESE EL TIPO DE GASEOSA ");
-				char opcionGaseosa = teclado.next().charAt(0);
-				switch (opcionGaseosa) {
-				case 1:
-					tipoGaseosa = TipoGaseosa.BEBIDA_COLA;
-					break;
-				case 2:
-					tipoGaseosa = TipoGaseosa.BEBIDA_LIMA;
-					break;
-				case 3:
-					tipoGaseosa = TipoGaseosa.BEBIDA_NARANJA;
-					break;
-				case 0:
-					System.out.println("FIN");
-					break;
-				default:
-					break;
-				} while (opcion != 0);
 
-				nuevaGaseosa = new Gaseosa(cantidad, precio, marca, tipoGaseosa);  
+				nuevaGaseosa = new Gaseosa(cantidad, precio, marca, id, porcentajeAzucar);
 
-				if (nuevoAlmacen.agregarProductoSinAlcohol(nuevaBebida)) {
+				if (nuevoAlmacen.agregarProducto(nuevaBebida)) {
 					System.out.println("BEBIDA GUARDADA");
 				} else {
 					System.out.println("NO SE PUDO GURADAR");
 				}
-				break; 
+				break;
 
 			case 2:
 				System.out.println("BEBIDA CON ALCOHOL");
 
 				System.out.println("INGRESE SU CANDIDA DE ML");
-				cantidad = teclado.nextDouble();
+				Double cantidad2 = teclado.nextDouble();
 
 				System.out.println("INGRESE SU PRECIO");
-				precio = teclado.nextDouble();
+				Double precio2 = teclado.nextDouble();
 
 				System.out.println("INGRESE SU MARCA");
-				marca = teclado.next();
-				
-				System.out.println("INGRESE SU EDAD");
-				Integer edad = teclado.nextInt(); 
+				String marca2 = teclado.next();
 
-				if (nuevoAlmacen.siEsMayor(edad)) {
+				// completar para que se recorra solo
+				System.out.println("id");
+				Integer id2 = teclado.nextInt();
+
+				nuevaBebida = new BebidaAlcoholica(cantidad2, precio2, marca2, id2);
+				if (nuevoAlmacen.agregarProducto(nuevaBebida)) {
+					System.out.println("BEBIDA GUARDADA");
+				} else {
+					System.out.println("NO SE PUDO GURADAR");
+				}
+
+				System.out.println("INGRESE SU EDAD");
+				Integer edad = teclado.nextInt();
+
+				if (nuevoAlmacen.siEsMayor(edad) == true) {
 					System.out.println("USTED PUEDE CONSUMIR BEBIDAS ALCOHOLICAS");
 				} else {
 					System.out.println("USTED NO TIENE NO TIENE LA EDAD NECESARIA PARA BEBER");
 				}
 
-				do {
-					
-					System.out.println("INGRESE EL TIPO DE BEBIDA ALCOHOLICA");
-
-					char opcionAlcohol = teclado.next().charAt(0);
-					switch (opcionAlcohol) {
-					case 1:
-						tipoAlcohol = TipoAlcohol.CERVEZA;
-						break;
-					case 2:
-						tipoAlcohol = TipoAlcohol.FERNET;
-						break;
-					case 3:
-						tipoAlcohol = TipoAlcohol.GANCIA;
-						break;
-					case 4:
-						tipoAlcohol = TipoAlcohol.VODKA;
-						break;
-					case 0:
-						System.out.println("FIN");
-						break;
-					default:
-						break;
-					}
-				}while (opcion != 0);
-				nuevaBebida = new BebidaAlcoholica(cantidad, precio, marca, tipoAlcohol);
-				if (nuevoAlmacen.agregarProductoConAlchohol(nuevaBebida)) {
-					System.out.println("BEBIDA GUARDADA");
-				} else {
-					System.out.println("NO SE PUDO GUARDAR");
-				}
-                       
 				break;
 			case 3:
 				System.out.println("AGREGAR AGUA");
 				// Double cantidad, Double precio, String marca, Integer id
-				
-				//AGREGAR ENUM DE ML DE AGUA 500ML, 1L, 2L
-				//AGREGAR ENUM DE ML DE AGUA 500ML, 1L, 2L
-				//AGREGAR ENUM DE ML DE AGUA 500ML, 1L, 2L
-				//AGREGAR ENUM DE ML DE AGUA 500ML, 1L, 2L
-				//AGREGAR ENUM DE ML DE AGUA 500ML, 1L, 2L
-
 				System.out.println("INGRESE LA CANTIDAD DE ML DE LA BOTELLA");
-				cantidad = teclado.nextDouble();
+				double cantidad3 = teclado.nextDouble();
 
 				System.out.println("INGRESE SU PRECIO");
-				precio = teclado.nextDouble();
+				double precio3 = teclado.nextDouble();
 				System.out.println("INGRESAR LA MARCA");
-				marca = teclado.next();
+				String marca3 = teclado.next();
 
+				// completar para que se recorra solo
+				System.out.println("INGRESE LA ID DE LA BEBIDA");
+				Integer id3 = teclado.nextInt();
 
-				nuevaAgua = new Agua(cantidad, precio, marca, id);
-                if(nuevoAlmacen.agregarProductoSinAlcohol(nuevaAgua)) {
-				    System.out.println("AGUA GUARDADA");	
-				} else {
-					System.out.println("NO SE PUDO GUARDAR");
-				}
-			
+				nuevaAgua = new Agua(cantidad3, precio3, marca3, id3);
+
+				// if para ver si se puede guardar o no
+				// nuevoAlmacen.mostrarBebida();
+				// if para ver si se puede guardar o no
+				// nuevoAlmacen.mostrarBebida();
+				// if para ver si se puede guardar o no
+				// nuevoAlmacen.mostrarBebida();
+
 				break;
 
 			case 4:
-				
-				//AGREGAR UN COMPORTAMIENTO DISTINTO
-				//AGREGAR UN COMPORTAMIENTO DISTINTO
-				//AGREGAR UN COMPORTAMIENTO DISTINTO
-				//AGREGAR UN COMPORTAMIENTO DISTINTO
-				//AGREGAR UN COMPORTAMIENTO DISTINTO
+				System.out.println("VER LO QUE ESTA TOMANDO");
 
-				//System.out.println("USTED ESTA BEBIENDO UN " + nuevoAlmacen.mostrarBebida());  
+				System.out.println("USTED ESTA BEBIENDO UN +" + nuevoAlmacen.mostrarBebida());
 
 				break;
 
@@ -204,10 +140,7 @@ public class MostradorAlmacen {
 
 				nuevoAlmacen.calcularPrecioDeLaBebida(marcaABuscar);
 				break;
-				//METODO INCOMPLETO !HAY QUE TERMINARLO!
-				//METODO INCOMPLETO !HAY QUE TERMINARLO!
-				//METODO INCOMPLETO !HAY QUE TERMINARLO!
-				//METODO INCOMPLETO !HAY QUE TERMINARLO!
+
 			case 6:
 				System.out.println("INGRESE EL ID DE LA BEBIDA A ELEMINAR");
 				Integer bebidaAEliminar = teclado.nextInt();
@@ -216,18 +149,15 @@ public class MostradorAlmacen {
 					System.out.println("BEBIDA ELIMINADA");
 				} else {
 					System.out.println("NO SE PUDO ELIMINAR LA BEBIDA");
-				} 
+				}
 
 				break;
-
-				//AGREGAR CASE 7 BUSCARBEBIDA POR ID
-				//AGREGAR CASE 7 BUSCARBEBIDA POR ID
-				//AGREGAR CASE 7 BUSCARBEBIDA POR ID
 			default:
 				System.out.println("OPCION INVALIDA");
 				break;
 			}
+
 		} while (opcion != 9);
 	}
 
-
+}
