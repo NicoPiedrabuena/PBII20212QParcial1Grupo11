@@ -66,9 +66,10 @@ public class Almacen {
         return valorBebida;
     }
 
-    //
+    
+    //modificar 
 
-    public Double calcularPrecioBebidas(String marca) {
+    public Double calcularPrecioDeLaBebida(String marca) {
         double precioTotal = 0;
 
         for (int i = 0; i < estanteria.length; i++) {
