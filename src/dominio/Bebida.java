@@ -2,18 +2,19 @@ package dominio;
 
 public class Bebida {
 
-	//private static Integer idActual = 1;
-	private Integer id;
-	private Double cantidad;
+	
+	private Integer id = 0;
+	private Double cantidad; //enum de cc 
 	private Double precio;
 	private String marca;
+	private TipoAlcohol tipoAlcohol;
 
-	public Bebida(Double cantidad, Double precio, String marca,Integer id) {
-		this.id=id;
-		//this.id = idActual++;
+	public Bebida(Double cantidad, Double precio, String marca, TipoAlcohol tipoAlcohol) {
+		this.id = this.id++; //PARA QUE TODAS LAS BEBIDAS DE INICIALICEN CON UN ID DISTINTO
 		this.cantidad = cantidad;
 		this.precio = precio;
 		this.marca = marca;
+		this.tipoAlcohol = tipoAlcohol;
 	}
 
 	public Integer getId() {

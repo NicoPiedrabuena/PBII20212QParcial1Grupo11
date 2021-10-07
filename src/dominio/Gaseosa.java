@@ -4,27 +4,22 @@ public class Gaseosa extends Bebida {
 
     private Double porcentajeAzucar;
     private Double promocion;
-
+    private CantidadMiliLitros mililitros;
     private TipoGaseosa tipoDeGaseosa;
 
 
     // RE VER LA PROMOCION
 
-    public Gaseosa(Double cantidad, Double precio, String marca, Integer id, Double porcentajeAzucar) {
-        super(cantidad, precio, marca, id);
-        this.porcentajeAzucar = porcentajeAzucar;
-        // this.promocion = promocion;   REE VERLO
+    public Gaseosa(Double cantidad, Double precio, String marca) {
+        super(cantidad, precio, marca);
+      
+     
     }
 
 
 
-    public Double getPorcentajeAzucar() {
-        return porcentajeAzucar;
-    }
 
-    public void setPorcentajeAzucar(Double porcentajeAzucar) {
-        this.porcentajeAzucar = porcentajeAzucar;
-    }
+
 
     // calcular promocion de cada bebida
     public Double getPromocion(String marca) {

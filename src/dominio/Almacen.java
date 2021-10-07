@@ -2,96 +2,76 @@ package dominio;
 
 public class Almacen {
 
-    private Bebida[][] estanteria;
+	private Bebida[][] estanteria;
 
-    public Almacen() {
-        estanteria = new Bebida[10][10];
-    }
+	public Almacen() {
+		estanteria = new Bebida[10][10];
+	}
 
-    // falta agregar el tipo de gaseosa
-    public boolean agregarProductoSinAlcohol(Bebida bebidaa) {
-        boolean seAgregoONo = false;
-        for (int i = 0; i < estanteria.length; i++) {
-            for (int j = 0; j < estanteria.length; j++) {
-                if (estanteria[i][j] == null) {
-                    estanteria[i][j] = bebidaa;
-                    seAgregoONo = true;
-                    break;
-                }
-            }
-        }
-        return seAgregoONo;
+	
+	public boolean agregarProducto(Bebida bebidaa) {		
+		boolean seAgregoONo = false;
+		for (int i = 0; i < estanteria.length; i++) {
+			for (int j = 0; j < estanteria.length; j++) {
+				if (estanteria[i][j] == null) {
+					estanteria[i][j] = bebidaa;
+					seAgregoONo = true;
+					break;
+				}
+			}
+		}
+		return seAgregoONo;
+	}
 
-    }
+	public boolean eliminarBebida(Integer id) {
+		boolean eliminadoONo = false;
+		for (int i = 0; i < estanteria.length; i++) {
+			for (int j = 0; j < estanteria.length; j++) {
+				if (estanteria[i][j] != null && estanteria[i][j].getId().equals(id)) {
+					estanteria[i][j] = null;
+					eliminadoONo = true;
+					break;
+				}
+			}
+		}
+		return eliminadoONo;
+	}
 
-    // falta agregar el tipo de alchol
-    public boolean agregarProductoConAlchohol(Bebida bebidaa) {
-        boolean seAgregoONo = false;
-        for (int i = 0; i < estanteria.length; i++) {
-            for (int j = 0; j < estanteria.length; j++) {
-                if (estanteria[i][j] == null) {
-                    estanteria[i][j] = bebidaa;
-                    seAgregoONo = true;
-                    break;
-                }
-             }
-        }
-        return seAgregoONo;
-    }
+	// terminar de arreglarlo bien -ARREGLADO-
+	// MUESTRA LO QUE HAY EN EL ESTANTE - MARCOS
+	public String mostrarEstante(Integer fila, Integer columna) {
+		String informacion = " ";
 
-    public boolean eliminarBebida(Integer id) {
-        boolean eliminadoONo = false;
-        for (int i = 0; i < estanteria.length; i++) {
-            for (int j = 0; j < estanteria.length; j++) {
-                if (estanteria[i][j] != null && estanteria[i][j].getId().equals(id)) {
-                    estanteria[i][j] = null;
-                    eliminadoONo = true;
-                    break;
-                }
-            }
-        }
-        return eliminadoONo;
-    }
+		if (estanteria[fila][columna] != null) {
+			informacion = "fila =" + fila + ", columa =" + columna + "bebida = " + estanteria[fila][columna].toString();
+		}
+		return informacion;
+	}
 
-    // terminar de arreglarlo bien
-    public String mostrarBebida() {
-        String valorBebida = " ";
-        for (int i = 0; i < estanteria.length; i++) {
-            for (int j = 0; j < estanteria.length; j++) {
-                if (estanteria[i][j] != null) {
-                    valorBebida = "fila =" + i + ", columa =" + j + "bebida = " + estanteria.toString();
-                }
-            }
-        }
-        return valorBebida;
-    }
+	// modificar
+	// NO SE QUE HAY QUE MODIFICAR - MARCOS
+	// PARA MI YA ESTA BIEN - MARCOS
+	public Double calcularPrecioDeLaBebida(String marca) {
+		double precio = 0;
 
-    
-    //modificar 
+		for (int i = 0; i < estanteria.length; i++) {
+			for (int j = 0; j < estanteria.length; j++) {
+				if (estanteria[i][j] != null && estanteria[i][j].equals(marca)) {
+					precio = estanteria[i][j].getPrecio();
+					break;
+				}
+			}
+		}
+		return precio;
+	}
 
-    public Double calcularPrecioDeLaBebida(String marca) {
-        double precioTotal = 0;
+	public Boolean siEsMayor(Integer edad) {
+		Boolean puedeTomar = null;
 
-        for (int i = 0; i < estanteria.length; i++) {
-            for (int j = 0; j < estanteria.length; j++) {
-                if (estanteria[i][j] != null && estanteria[i][j].equals(marca)) {
-
-                    precioTotal += estanteria[i][j].getPrecio();
-                }
-            }
-        }
-        return precioTotal;
-
-    }
-
-    // despues en la interfaz va agregar siso
-    public Boolean siEsMayor(Integer edad) {
-        Boolean puedeTomar = null;        
-
-        if (edad >= 18) {
-            puedeTomar = true;
-        }
-        return puedeTomar;
-    }
+		if (edad >= 18) {
+			puedeTomar = true;
+		}
+		return puedeTomar;
+	}
 
 }
