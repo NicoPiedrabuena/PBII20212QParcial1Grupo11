@@ -2,10 +2,12 @@ package main;
 
 import java.util.Scanner;
 
-import ar.edu.unlam.Parcial.Dominio.Agua;
-import ar.edu.unlam.Parcial.Dominio.Almacen;
-import ar.edu.unlam.Parcial.Dominio.BebidaAlcoholica;
-import ar.edu.unlam.Parcial.Dominio.Gaseosa;
+import dominio.Agua;
+import dominio.Almacen;
+import dominio.BebidaAlcoholica;
+import dominio.Gaseosa;
+
+
 
 public class MostradorAlmacen {
 
