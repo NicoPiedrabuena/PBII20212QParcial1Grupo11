@@ -2,29 +2,32 @@ package dominio;
 
 public class BebidaAlcoholica extends Bebida {
 
-    private TipoAlcohol tipoDeAlcohol;
-    private Double gradoDeAlchol;
+	private Double gradoDeAlchol;
+	private TipoAlcohol tipoAlcohol;
 
-    public BebidaAlcoholica(TipoAlcohol tipoDeAlcohol ,CantidadMiliLitros mililitros ,Double cantidad, Double precio, String marca) {
-        super(mililitros , precio, marca);
-        this.tipoDeAlcohol = tipoDeAlcohol;
-        
-    }
 
-    public TipoAlcohol getTipoDeAlcohol() {
-        return tipoDeAlcohol;
-    }
+	public BebidaAlcoholica(Double cantidad, Double precio, String marca, TipoAlcohol tipoAlcohol,
+			CantidadMiliLitros mililitros) {
+		super(precio, marca, mililitros);
+		this.tipoAlcohol = tipoAlcohol;
 
-    public void setTipoDeAlcohol(TipoAlcohol tipoDeAlcohol) {
-        this.tipoDeAlcohol = tipoDeAlcohol;
-    }
+	}
 
-    public Double getGradoDeAlchol() {
-        return gradoDeAlchol;
-    }
 
-    public void setGradoDeAlchol(Double gradoDeAlchol) {
-        this.gradoDeAlchol = gradoDeAlchol;
-    }
+	public TipoAlcohol getTipoAlcohol() {
+		return tipoAlcohol;
+	}
+
+	public void setTipoAlcohol(TipoAlcohol tipoAlcohol) {
+		this.tipoAlcohol = tipoAlcohol;
+	}
+
+	public Double getGradoDeAlchol() {
+		return gradoDeAlchol;
+	}
+
+	public void setGradoDeAlchol(Double gradoDeAlchol) {
+		this.gradoDeAlchol = gradoDeAlchol;
+	}
 
 }
