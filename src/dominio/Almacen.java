@@ -22,20 +22,14 @@ public class Almacen {
 		return seAgregoONo;
 	}
 
-<<<<<<< HEAD
-	public boolean comprarBebida(String marca , CantidadMiliLitros mililitros) {
-		boolean eliminadoONo = false;
-		for (int i = 0; i < estanteria.length; i++) {
-			for (int j = 0; j < estanteria.length; j++) {
-				if (estanteria[i][j] != null && estanteria[i][j].getMarca().equals(marca) && estanteria[i][j].getMililitros().equals(mililitros)) {
-=======
+
 	public boolean comprarBebida(String marca, CantidadMiliLitros mililitros) {
 		boolean eliminadoONo = false;
 		for (int i = 0; i < estanteria.length; i++) {
 			for (int j = 0; j < estanteria.length; j++) {
 				if (estanteria[i][j] != null && estanteria[i][j].getMarca().equals(marca)
 						&& estanteria[i][j].getMililitros().equals(mililitros)) {
->>>>>>> 1ef982bab26a1a2adf89a17727413a6d0a709c35
+
 					estanteria[i][j] = null;
 					eliminadoONo = true;
 					break;
