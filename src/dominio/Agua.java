@@ -1,5 +1,5 @@
 package dominio;
 
-public class Agua {
+public class Agua extends Bebida {
 
 }
