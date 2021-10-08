@@ -81,13 +81,27 @@ public class Almacen {
 		if (edad >= 18) {
 			puedeTomar = true;
 		}
-		return puedeTomar;
+		return puedeTomar; 
 	}
 	
-
-	// calcular promocion de cada bebida
-   /* public Double getPromocion(String marca) {
-        return promocion;
-    }*/
+	public String mostrarBebida(){
+        /*
+         * Devuelve un mapa de los asientos del vuelo indicando por cada uno si se
+         * encuentra libre "L" u ocupado "O".
+         */
+        String L = "L";
+        String O = "O";
+        String estante= "";
+        for (int i = 0; i < fila; i++) {
+            for (int j = 0; j < columna; j++) {
+                if (estanteria[i][j] == null) { 
+                    estante += "  " + L;
+                } else {
+                    estante += "  " + O;
+                }
+            }estante+="\n";
+        }
+        return estante;
+    }
 
 }
