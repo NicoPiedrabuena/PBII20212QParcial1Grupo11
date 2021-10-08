@@ -1,7 +1,7 @@
-import static org.junit.Assert.*;
-
+package test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
-
 import dominio.Almacen;
 import dominio.BebidaAlcoholica;
 import dominio.CantidadMiliLitros;
@@ -33,7 +33,7 @@ public class testAlmacen {
 
         // Double precio, String marca, TipoGaseosa tipoDeGaseosa, CantidadMiliLitros
         // miliLitros
-        Gaseosa cocaCola = new Gaseosa(10.00, "cola ", TipoGaseosa.BEBIDA_NARANJA, CantidadMiliLitros.ML2250);
+        Gaseosa cocaCola = new Gaseosa(10.00, "cola ",  CantidadMiliLitros.ML2250);
 
         assertTrue(loshijosdeputa.agregarProducto(cocaCola));
 
@@ -48,9 +48,9 @@ public class testAlmacen {
 
         // Double precio, String marca, TipoGaseosa tipoDeGaseosa, CantidadMiliLitros
         // miliLitros
-        Gaseosa cocaCola = new Gaseosa(100.00, "new style", TipoGaseosa.BEBIDA_COLA, CantidadMiliLitros.ML500);
+        Gaseosa cocaCola = new Gaseosa(100.00, "new style", CantidadMiliLitros.ML500);
 
-        boolean resultado = loshijosdeputa.eliminarBebida(100);
+        boolean resultado = loshijosdeputa.comprarBebida("new style", CantidadMiliLitros.ML500);
 
         assertTrue(resultado);
     }
@@ -62,9 +62,9 @@ public class testAlmacen {
 
         Almacen losHijosDePuta = new Almacen();
 
-        Gaseosa cocaCola = new Gaseosa(100.00, "new style", TipoGaseosa.BEBIDA_COLA, CantidadMiliLitros.ML500);
+        Gaseosa cocaCola = new Gaseosa(100.00, "new style", CantidadMiliLitros.ML500);
 
-        Double resultadoObtenido = losHijosDePuta.calcularPrecioDeLaBebida("new style");
+        Double resultadoObtenido = losHijosDePuta.calcularPrecioDeLaBebida("new style", CantidadMiliLitros.ML500);
         Double resultadoEsperado = 100.00;
 
         assertEquals(resultadoObtenido, resultadoEsperado);
