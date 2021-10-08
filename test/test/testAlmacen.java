@@ -1,6 +1,7 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import dominio.Almacen;
@@ -69,14 +70,53 @@ public class testAlmacen {
     	 assertEquals(valorEsperado, manaosCola.getPrecio());
     	 
     }
+    
+    @Test
+    public void queSePuedaBuscarUnaGaseosaPorLaMarca() {
+    	Almacen laEsquina = new Almacen();
+      	 Gaseosa manaosCola = new Gaseosa(100.00, Marca.MANAOS, CantidadMiliLitros.ML500, TipoGaseosa.BEBIDA_COLA);
+      	 laEsquina.agregarProducto(manaosCola);
+      	 //ejecucion
+      	   
+      	 //comprobacion
+      	 assertNotNull(laEsquina.buscarGaseosa(manaosCola.getMarca()));
+    }
+    
     @Test 
     public void queSePuedaVerElPorcentajeDeAzucarEnLasGaseosas() {
     	Almacen laEsquina = new Almacen();
    	 Gaseosa manaosCola = new Gaseosa(100.00, Marca.MANAOS, CantidadMiliLitros.ML500, TipoGaseosa.BEBIDA_COLA);
    	 laEsquina.agregarProducto(manaosCola);
    	 //ejecucion
-   //TERMINAR//TERMINAR//TERMINAR//TERMINAR//TERMINAR
+   	 Integer valorEsperado = 40;
+   	 //comprobacion
+   	 assertEquals(valorEsperado, laEsquina.buscarGaseosa(manaosCola.getMarca()).getPorcentajeAzucar());
+   	 
     }
+    
+    @Test
+   public void queSePuedaBuscarUnaBebidaAlcoholicaPorSuMarca() {
+    	Almacen laEsquina = new Almacen();
+    	BebidaAlcoholica  escabio = new BebidaAlcoholica(100.0, Marca.FERNET, CantidadMiliLitros.ML1000);
+    	laEsquina.agregarProducto(escabio);
+    	//ejecucion
+    	
+    	//Comprobacion 
+    	assertNotNull(laEsquina.buscarAlcohol(escabio.getMarca()));
+    }
+    
+    @Test
+    public void queSePuedaVerElPorcentajeDeAlcohol() {
+    	Almacen laEsquina = new Almacen();
+    	BebidaAlcoholica  escabio = new BebidaAlcoholica(100.0, Marca.FERNET, CantidadMiliLitros.ML1000);
+    	laEsquina.agregarProducto(escabio);
+    	//ejecucion
+    	Double valorEsperado = 39.0;
+    	//comprobacion
+    	assertEquals(valorEsperado, laEsquina.buscarAlcohol(escabio.getMarca()).getGradoDeAlchol());
+    }
+    
+    
     
 
 }
