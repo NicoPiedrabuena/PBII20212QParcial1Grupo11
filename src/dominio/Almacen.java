@@ -36,7 +36,6 @@ public class Almacen {
 		return eliminadoONo;
 	}
 
-
 	public String mostrarEstante(Integer fila, Integer columna) {
 		String informacion = " ";
 
@@ -45,8 +44,6 @@ public class Almacen {
 		}
 		return informacion;
 	}
-
-
 
 	public Double calcularPrecioDeLaBebida(Marca marca, CantidadMiliLitros mililitros) {
 
@@ -64,8 +61,6 @@ public class Almacen {
 		return precio;
 	}
 
-	
-
 	public Boolean siEsMayor(Integer edad) {
 		Boolean puedeTomar = false;
 
@@ -74,8 +69,6 @@ public class Almacen {
 		}
 		return puedeTomar;
 	}
-	
-
 
 	public String mostrarPrecios() {
 		String estante = "";
@@ -93,10 +86,21 @@ public class Almacen {
 		return estante;
 	}
 
-	// calcular promocion de cada bebida independientemente de su cantidad de mililitros tendra un 10% de descuento
-	
-	/*
-	 * public Double getPromocion(String marca) { return promocion; }
-	 */
+
+	public Gaseosa buscarGaseosa(Marca marca) {
+		Gaseosa gaseosaEncontrada = null;
+
+		for (int i = 0; i < estanteria.length; i++) {
+			for (int j = 0; j < estanteria.length; j++) {
+				if (estanteria[i][j] != null && estanteria[i][j].getMarca().equals(marca)) {
+					gaseosaEncontrada = (Gaseosa) estanteria[i][j];
+					break;
+				}
+			}
+			break;
+		}
+		return gaseosaEncontrada;
+
+	}
 
 }

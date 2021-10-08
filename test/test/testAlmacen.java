@@ -69,5 +69,14 @@ public class testAlmacen {
     	 assertEquals(valorEsperado, manaosCola.getPrecio());
     	 
     }
+    @Test 
+    public void queSePuedaVerElPorcentajeDeAzucarEnLasGaseosas() {
+    	Almacen laEsquina = new Almacen();
+   	 Gaseosa manaosCola = new Gaseosa(100.00, Marca.MANAOS, CantidadMiliLitros.ML500, TipoGaseosa.BEBIDA_COLA);
+   	 laEsquina.agregarProducto(manaosCola);
+   	 //ejecucion
+   //TERMINAR//TERMINAR//TERMINAR//TERMINAR//TERMINAR
+    }
+    
 
 }

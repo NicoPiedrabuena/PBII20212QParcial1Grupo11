@@ -6,12 +6,27 @@ public class Gaseosa extends Bebida {
     private Double promocion;
     private TipoGaseosa tipoDeGaseosa;
     private Boolean enPromocion;
+    private Integer porcentajeAzucar;
 
 
 	public Gaseosa(Double precio, Marca marca, CantidadMiliLitros mililitros, TipoGaseosa tipoGaseosa) {
 
 		super(precio, marca, mililitros);
 		this.enPromocion = false;
+		switch (getMarca()) {
+		
+		case DIA:
+			this.porcentajeAzucar = 20;
+			break;
+		case MANAOS:
+			this.porcentajeAzucar = 40;
+			break;
+		case LA_BICHY:
+			this.porcentajeAzucar = 34;
+			break;
+		default:
+			break;
+		}
 	}
 
 	// RE VER LA PROMOCION
@@ -59,6 +74,15 @@ public class Gaseosa extends Bebida {
 	public void setPromocion(Double promocion) {
 		this.promocion = promocion;
 	}
+
+	public Integer getPorcentajeAzucar() {
+		return porcentajeAzucar;
+	}
+
+	public void setPorcentajeAzucar(Integer porcentajeAzucar) {
+		this.porcentajeAzucar = porcentajeAzucar;
+	}
+	
 
 }
 
