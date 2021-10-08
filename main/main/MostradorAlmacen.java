@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import dominio.*;
 
+
 public class MostradorAlmacen {
 	public static void main(String[] args) {
 		Scanner teclado = new Scanner(System.in);
@@ -21,7 +22,6 @@ public class MostradorAlmacen {
 				Marca marca = null;
 				CantidadMiliLitros mililitros = null;
 				Double precio;
-				TipoAlcohol tipoAlcohol = null;
 				TipoGaseosa tipoGaseosa = null;
 				char opcionRepositor;
 				do {
