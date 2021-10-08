@@ -58,7 +58,7 @@ public class Almacen {
 
 		for (int i = 0; i < estanteria.length; i++) {
 			for (int j = 0; j < estanteria.length; j++) {
-				if (estanteria[i][j] != null && estanteria[i][j].equals(marca)
+				if (estanteria[i][j] != null && estanteria[i][j].getMarca().equals(marca)
 						&& estanteria[i][j].getMililitros().equals(mililitros)) {
 					precio = estanteria[i][j].getPrecio();
 					break;
