@@ -1,5 +1,3 @@
-package test;
-
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -13,80 +11,78 @@ import dominio.TipoGaseosa;
 
 public class testAlmacen {
 
-	@Test
-	public void queSePuedaAgregarUnaBebida() {
+    @Test
+    public void queSePuedaAgregarUnaBebida() {
 
-		Almacen loshijosdeputa = new Almacen();
+        Almacen loshijosdeputa = new Almacen();
 
-		// Double cantidad, Double precio, String marca
-		BebidaAlcoholica vodka = new BebidaAlcoholica(100.00, 10.000, "new style", TipoAlcohol.GANCIA,
-				CantidadMiliLitros.ML1000);
+        // Double cantidad, Double precio, String marca
+        BebidaAlcoholica vodka = new BebidaAlcoholica(100.00, 10.000, "new style", TipoAlcohol.GANCIA,
+                CantidadMiliLitros.ML1000);
 
-		Boolean resultadoEsperado = true;
-		Boolean resultadoObtenido = loshijosdeputa.agregarProducto(vodka);
+        Boolean resultadoEsperado = true;
+        Boolean resultadoObtenido = loshijosdeputa.agregarProducto(vodka);
 
-		assertEquals(resultadoEsperado, resultadoObtenido);
-	}
+        assertEquals(resultadoEsperado, resultadoObtenido);
+    }
 
-	@Test
-	public void queSePuedaAgregarProductoSinAlcohol() {
+    @Test
+    public void queSePuedaAgregarUnaGaseosa() {
 
-		Almacen loshijosdeputa = new Almacen();
-		// Double cantidad, Double precio, String marca, TipoGaseosa tipoDeGaseosa,
-		// CantidadMiliLitros miliLitros
+        Almacen loshijosdeputa = new Almacen();
 
-		Gaseosa cocaCola = new Gaseosa(10.00, 100.000, "cola ", 07, 1.0);
+        // Double precio, String marca, TipoGaseosa tipoDeGaseosa, CantidadMiliLitros
+        // miliLitros
+        Gaseosa cocaCola = new Gaseosa(10.00, "cola ", TipoGaseosa.BEBIDA_NARANJA, CantidadMiliLitros.ML2250);
 
-		assertTrue(loshijosdeputa.agregarProductoSinAlcohol(cocaCola));
+        assertTrue(loshijosdeputa.agregarProducto(cocaCola));
 
-	}
+    }
 
-	// arreglar
+    // arreglar
 
-	@Test
-	public void queSePuedaEliminarBebidas() {
+    @Test
+    public void queSePuedaEliminarBebidas() {
 
-		Almacen loshijosdeputa = new Almacen();
+        Almacen loshijosdeputa = new Almacen();
 
-		BebidaAlcoholica vodka = new BebidaAlcoholica(100.00, 10.000, "new style", 100);
+        // Double precio, String marca, TipoGaseosa tipoDeGaseosa, CantidadMiliLitros
+        // miliLitros
+        Gaseosa cocaCola = new Gaseosa(100.00, "new style", TipoGaseosa.BEBIDA_COLA, CantidadMiliLitros.ML500);
 
-		boolean resultado = loshijosdeputa.eliminarBebida(100);
+        boolean resultado = loshijosdeputa.eliminarBebida(100);
 
-		assertTrue(resultado);
-	}
+        assertTrue(resultado);
+    }
 
-	// fijate el test
-	@Test
-	public void queSeMuestreLaMarcaDeLaBebida() {
+    // completar
 
-		Almacen loshijosdeputa = new Almacen();
+    @Test
+    public void calculoDelPrecio() {
 
-		BebidaAlcoholica ferno = new BebidaAlcoholica(100.00, 10.000, "branca", 100);
+        Almacen losHijosDePuta = new Almacen();
 
-		loshijosdeputa.agregarProducto(ferno);
+        Gaseosa cocaCola = new Gaseosa(100.00, "new style", TipoGaseosa.BEBIDA_COLA, CantidadMiliLitros.ML500);
 
-		String bebidaEsperada = "branca";
+        Double resultadoObtenido = losHijosDePuta.calcularPrecioDeLaBebida("new style");
+        Double resultadoEsperado = 100.00;
 
-		assertEquals(bebidaEsperada, loshijosdeputa.mostrarEstante(null, null));
+        assertEquals(resultadoObtenido, resultadoEsperado);
 
-	}
+    }
 
-	// completar
+    // arreglar
 
-	@Test
-	public void queSePuedaVerElPrecio() {
+    @Test
+    public void verSiEsMayorONo() {
 
-	}
+        Almacen loshijosdeputa = new Almacen();
+ 
+        Boolean puedeTomar = loshijosdeputa.siEsMayor(20);
+        Boolean resultoEsperado = true;
 
-	// arreglar
-
-	@Test
-	public void verSiEsMayorONo() {
-
-		Almacen loshijosdeputa = new Almacen();
-
-		assertFalse(loshijosdeputa.siEsMayor(20));
-
-	}
+        assertEquals(resultoEsperado, puedeTomar);
+    
+    }
 
 }
