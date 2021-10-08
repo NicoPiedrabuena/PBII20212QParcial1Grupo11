@@ -315,9 +315,13 @@ public class MostradorAlmacen {
 							System.out.println("************SE AGREGO UNA BEBIDA A LA ESTANTERIA**********");
 							System.out.println("************SE AGREGO UNA BEBIDA A LA ESTANTERIA**********");
 							System.out.println("\n");
-							System.out.println("\n");
+							
 						} else {
-							System.out.println("NO SE AGREGO NADA.");
+							System.out.println("***********NO SE AGREGO NADA A LA ESTANTERIA**********");
+							System.out.println("***********NO SE AGREGO NADA A LA ESTANTERIA**********");
+							System.out.println("***********NO SE AGREGO NADA A LA ESTANTERIA**********");
+							System.out.println("***********NO SE AGREGO NADA A LA ESTANTERIA**********");
+							System.out.println("\n");
 						}
 						break;
 					case '0':
@@ -339,6 +343,7 @@ public class MostradorAlmacen {
 					System.out.println("INGRESE 1 PARA VER UNA GASEOSA");
 					System.out.println("INGRESE 2 PARA VER LA LISTA DE PRECIOS");
 					System.out.println("INGRESE 3 PARA COMPRAR UNA BEBIDA ");
+					
 					System.out.println("INGRESE 0 PARA TERMINAR DE GUARDAR BEBIDAS");
 					opcionesCliente = teclado.next().charAt(0);
 					Integer opcionDeMarca;
@@ -432,6 +437,28 @@ public class MostradorAlmacen {
 									opcionDeMarca = 0;
 								}
 							}
+							if (marca.equals(Marca.DIA) || marca.equals(Marca.LA_BICHY) || marca.equals(Marca.MANAOS)) {
+								Integer respuesta;
+								do {
+									System.out.println("QUERES SABER EL PORCENTAJE DE AZUCAR?");
+									System.out.println("PRESIONE 1 PARA SI");
+									System.out.println("PRESIONE 2 PARA NO");
+									respuesta = teclado.nextInt();
+									
+									switch (respuesta) {
+									case 1:
+										
+										System.out.println("el porcentaje de azucar es de: " + nuevoAlmacen.buscarGaseosa(marca).getPorcentajeAzucar() + "%");
+										opcionDeMarca = 0;
+										break;
+									case 2:
+										opcionDeMarca = 0;
+										break;
+									default:
+										break;
+									}
+								} while (respuesta != 0);
+							}
 							
 						} while (opcionDeMarca != 0);
 						
@@ -476,14 +503,14 @@ public class MostradorAlmacen {
 							System.out.println("***********SE LA COMPRA FUE REALIZADA CON EXITO***********");
 							System.out.println("***********SE LA COMPRA FUE REALIZADA CON EXITO***********");
 							System.out.println("\n");
-							System.out.println("\n");
+							
 						} else {
 							System.out.println("***********NO HAY STOCK DE LO QUE DESEA COMPRAR***********");
 							System.out.println("***********NO HAY STOCK DE LO QUE DESEA COMPRAR***********");
 							System.out.println("***********NO HAY STOCK DE LO QUE DESEA COMPRAR***********");
 							System.out.println("***********NO HAY STOCK DE LO QUE DESEA COMPRAR***********");
 							System.out.println("\n");
-							System.out.println("\n");
+							
 						}
 
 						break;
