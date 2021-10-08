@@ -1,9 +1,7 @@
 package test;
-
-import static org.junit.Assert.*;
-
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
-
 import dominio.Almacen;
 import dominio.BebidaAlcoholica;
 import dominio.CantidadMiliLitros;
@@ -13,79 +11,85 @@ import dominio.TipoGaseosa;
 
 public class testAlmacen {
 
-	@Test
-	public void queSePuedaAgregarUnaBebida() {
 
-		Almacen loshijosdeputa = new Almacen();
+    @Test
+    public void queSePuedaAgregarUnaBebida() {
 
-		// Double cantidad, Double precio, String marca
-		BebidaAlcoholica vodka = new BebidaAlcoholica(10.0, "new style", TipoAlcohol.VODKA, CantidadMiliLitros.ML1000);
 
-		Boolean resultadoEsperado = true;
-		Boolean resultadoObtenido = loshijosdeputa.agregarProducto(vodka);
+        Almacen loshijosdeputa = new Almacen();
 
-		assertEquals(resultadoEsperado, resultadoObtenido);
-	}
 
-	@Test
-	public void queSePuedaAgregarProductoSinAlcohol() {
+        // Double cantidad, Double precio, String marca
+        BebidaAlcoholica vodka = new BebidaAlcoholica(10.000, "new style",TipoAlcohol.VODKA, CantidadMiliLitros.ML1000);
 
-		Almacen loshijosdeputa = new Almacen();
-		// DDouble precio, String marca, 
-		// CantidadMiliLitros miliLitros
+        Boolean resultadoEsperado = true;
+        Boolean resultadoObtenido = loshijosdeputa.agregarProducto(vodka);
 
-		Gaseosa cocaCola = new Gaseosa(125.0, "cola - cola ", CantidadMiliLitros.ML1000);
+        assertEquals(resultadoEsperado, resultadoObtenido);
+    }
 
-		assertTrue(loshijosdeputa.agregarProducto(cocaCola));
 
-	}
+    @Test
+    public void queSePuedaAgregarUnaGaseosa() {
 
-	// arreglar
+        Almacen loshijosdeputa = new Almacen();
 
-	@Test
-	public void queSePuedaEliminarBebidas() {
+        // Double precio, String marca, TipoGaseosa tipoDeGaseosa, CantidadMiliLitros
+        // miliLitros
+        Gaseosa cocaCola = new Gaseosa(10.00, "cola ",  CantidadMiliLitros.ML2250);
 
-		Almacen loshijosdeputa = new Almacen();
+        assertTrue(loshijosdeputa.agregarProducto(cocaCola));
 
-		BebidaAlcoholica vodka = new BebidaAlcoholica(10.0, "new style", TipoAlcohol.VODKA, CantidadMiliLitros.ML1000);
 
-		boolean resultado = loshijosdeputa.comprarBebida("new style" , CantidadMiliLitros.ML1000);
+    }
 
-		assertTrue(resultado);
-	}
+    // arreglar
 
-	// fijate el test
-	@Test
-	public void queSeMuestreLaMarcaDeLaBebida() {
 
-		Almacen loshijosdeputa = new Almacen();
+    @Test
+    public void queSePuedaEliminarBebidas() {
 
-		BebidaAlcoholica ferno = new BebidaAlcoholica(125.0, "branca", TipoAlcohol.FERNET, CantidadMiliLitros.ML1000);
+        Almacen loshijosdeputa = new Almacen();
 
-		loshijosdeputa.agregarProducto(ferno);
+        // Double precio, String marca, TipoGaseosa tipoDeGaseosa, CantidadMiliLitros
+        // miliLitros
+        Gaseosa cocaCola = new Gaseosa(100.00, "new style", CantidadMiliLitros.ML500);
 
-		String bebidaEsperada = "branca";
 
-		assertEquals(bebidaEsperada, loshijosdeputa.mostrarEstante(null, null));
+        boolean resultado = loshijosdeputa.comprarBebida("new style", CantidadMiliLitros.ML500);
 
-	}
 
-	// completar
+        assertTrue(resultado);
+    }
 
-	@Test
-	public void queSePuedaVerElPrecio() {
+    // completar
 
-	}
+    @Test
+    public void calculoDelPrecio() {
 
-	// arreglar
+        Almacen losHijosDePuta = new Almacen();
 
-	@Test
-	public void verSiEsMayorONo() {
+        Gaseosa cocaCola = new Gaseosa(100.00, "new style", CantidadMiliLitros.ML500);
 
-		Almacen loshijosdeputa = new Almacen();
+        Double resultadoObtenido = losHijosDePuta.calcularPrecioDeLaBebida("new style", CantidadMiliLitros.ML500);
+        Double resultadoEsperado = 100.00;
 
-		assertFalse(loshijosdeputa.siEsMayor(20));
+        assertEquals(resultadoObtenido, resultadoEsperado);
 
-	}
+    }
+
+    // arreglar
+
+    @Test
+    public void verSiEsMayorONo() {
+
+        Almacen loshijosdeputa = new Almacen();
+ 
+        Boolean puedeTomar = loshijosdeputa.siEsMayor(20);
+        Boolean resultoEsperado = true;
+
+        assertEquals(resultoEsperado, puedeTomar);
+    
+    }
 
 }
