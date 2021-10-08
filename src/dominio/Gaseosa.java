@@ -7,7 +7,7 @@ public class Gaseosa extends Bebida {
     private TipoGaseosa tipoDeGaseosa;
     private Boolean enPromocion;
 
-	public Gaseosa(Double precio, String marca, CantidadMiliLitros mililitros) {
+	public Gaseosa(Double precio, String marca, CantidadMiliLitros mililitros, TipoGaseosa tipoGaseosa) {
 		super(precio, marca, mililitros);
 		this.enPromocion = false;
 		// TODO Auto-generated constructor stub
