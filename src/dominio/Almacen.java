@@ -5,7 +5,7 @@ public class Almacen {
 	private Bebida[][] estanteria;
 
 	public Almacen() {
-		estanteria = new Bebida[10][10];
+		estanteria = new Bebida[20][20];
 	}
 
 	public boolean agregarProducto(Bebida bebidaa) {
@@ -22,8 +22,7 @@ public class Almacen {
 		return seAgregoONo;
 	}
 
-
-	public boolean comprarBebida(String marca, CantidadMiliLitros mililitros) {
+	public boolean comprarBebida(Marca marca, CantidadMiliLitros mililitros) {
 		boolean eliminadoONo = false;
 		for (int i = 0; i < estanteria.length; i++) {
 			for (int j = 0; j < estanteria.length; j++) {
@@ -83,11 +82,15 @@ public class Almacen {
 		}
 		return puedeTomar;
 	}
-	
+
+	public void mostrarPrecios() {
+		// TODO Auto-generated method stub
+
+	}
 
 	// calcular promocion de cada bebida
-   /* public Double getPromocion(String marca) {
-        return promocion;
-    }*/
+	/*
+	 * public Double getPromocion(String marca) { return promocion; }
+	 */
 
 }

@@ -7,10 +7,9 @@ public class BebidaAlcoholica extends Bebida {
 	private TipoAlcohol tipoAlcohol;
 
 
-	public BebidaAlcoholica(Double precio, String marca, TipoAlcohol tipoAlcohol,
-			CantidadMiliLitros mililitros) {
+	public BebidaAlcoholica(Double precio, Marca marca, CantidadMiliLitros mililitros) {
 		super(precio, marca, mililitros);
-		this.tipoAlcohol = tipoAlcohol;
+		
 
 	}
 
