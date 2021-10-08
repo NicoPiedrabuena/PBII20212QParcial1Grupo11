@@ -5,21 +5,19 @@ public class Almacen {
 	private Bebida[][] estanteria;
 
 	public Almacen() {
-		estanteria = new Bebida[20][20];
+		estanteria = new Bebida[5][5];
 	}
 
 	public boolean agregarProducto(Bebida bebidaa) {
-		boolean seAgregoONo = false;
 		for (int i = 0; i < estanteria.length; i++) {
 			for (int j = 0; j < estanteria.length; j++) {
 				if (estanteria[i][j] == null) {
 					estanteria[i][j] = bebidaa;
-					seAgregoONo = true;
-					break;
+					return true;
 				}
 			}
 		}
-		return seAgregoONo;
+		return false;
 	}
 
 	public boolean comprarBebida(Marca marca, CantidadMiliLitros mililitros) {
@@ -38,8 +36,7 @@ public class Almacen {
 		return eliminadoONo;
 	}
 
-	// terminar de arreglarlo bien -ARREGLADO-
-	// MUESTRA LO QUE HAY EN EL ESTANTE - MARCOS
+
 	public String mostrarEstante(Integer fila, Integer columna) {
 		String informacion = " ";
 
@@ -49,9 +46,7 @@ public class Almacen {
 		return informacion;
 	}
 
-	// modificar
-	// NO SE QUE HAY QUE MODIFICAR - MARCOS
-	// PARA MI YA ESTA BIEN - MARCOS
+
 	public Double calcularPrecioDeLaBebida(String marca, CantidadMiliLitros mililitros) {
 		double precio = 0;
 
@@ -67,25 +62,33 @@ public class Almacen {
 		return precio;
 	}
 
-	// AGREGAR METODO "MAPA DE PRECIOS" QUE MUESTRE LOS PRECIOS DE TODA LA
-	// ESTANTERIA
-	// AGREGAR METODO "MAPA DE PRECIOS" QUE MUESTRE LOS PRECIOS DE TODA LA
-	// ESTANTERIA
-	// AGREGAR METODO "MAPA DE PRECIOS" QUE MUESTRE LOS PRECIOS DE TODA LA
-	// ESTANTERIA
+	
 
 	public Boolean siEsMayor(Integer edad) {
-		Boolean puedeTomar = null;
+		Boolean puedeTomar = false;
 
 		if (edad >= 18) {
 			puedeTomar = true;
 		}
 		return puedeTomar;
 	}
+	
 
-	public void mostrarPrecios() {
-		// TODO Auto-generated method stub
 
+	public String mostrarPrecios() {
+		String estante = "";
+
+		for (int i = 0; i < estanteria.length; i++) {
+			for (int j = 0; j < estanteria.length; j++) {
+				if (estanteria[i][j] != null) {
+					estante += estanteria[i][j].toString();
+				} else {
+					estante += "           VACIO         | ";
+				}
+			}
+			estante += "\n";
+		}
+		return estante;
 	}
 
 	// calcular promocion de cada bebida

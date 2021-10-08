@@ -39,8 +39,11 @@ public class Bebida {
 		this.marca = marca;
 	}
 
+
+
+	@Override
 	public String toString() {
-		return "Bebida [id=" + id + ", precio=" + precio + ", marca=" + marca + "]";
+		return  marca +" " + mililitros +" $$= " + precio+" | " ;
 	}
 
 	public CantidadMiliLitros getMililitros() {
