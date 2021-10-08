@@ -32,7 +32,9 @@ public class Gaseosa extends Bebida {
 	}
 
 	public void setEnPromocion(Boolean enPromocion) {
-		this.enPromocion = enPromocion;
+		if (enPromocion) {
+			setPrecio(getPrecio()*0.9);
+		}
 
 	}
 

@@ -127,6 +127,27 @@ public class MostradorAlmacen {
 							}
 						} while (opcionTipoGaseosa != '0');
 						Gaseosa gaseosa = new Gaseosa(precio, marca, mililitros, tipoGaseosa);
+						Integer condition;
+						do {
+							System.out.println("¿¿QUERES PONERLE PROMOCION??");
+							System.out.println("PRESIONE 1 PARA SI");
+							System.out.println("PRESIONE 2 PARA NO");
+							condition = teclado.nextInt();
+							switch (condition) {
+							case 1:
+								gaseosa.setEnPromocion(true);
+								condition = 0;
+								break;
+							case 2:
+								gaseosa.setEnPromocion(false);
+								condition = 0;
+								break;
+							default:
+								break;
+							}
+						} while (condition != 0);
+						
+						
 						if (nuevoAlmacen.agregarProducto(gaseosa)) {
 							System.out.println("************SE AGREGO UNA BEBIDA A LA ESTANTERIA**********");
 							System.out.println("************SE AGREGO UNA BEBIDA A LA ESTANTERIA**********");

@@ -3,7 +3,7 @@ package dominio;
 public class Bebida {
 
 	private Integer id = 0;
-
+	
 	private Double precio;
 	private Marca marca;
 	private CantidadMiliLitros mililitros;

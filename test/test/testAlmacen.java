@@ -22,16 +22,10 @@ public class testAlmacen {
 
         assertEquals(resultadoEsperado, resultadoObtenido);
     }
-    @Test
-    public void queSePuedaAgregarUnaGaseosa() {
-        Almacen laEsquina = new Almacen();
-        Gaseosa manaosCola = new Gaseosa(10.00, Marca.MANAOS,  CantidadMiliLitros.ML2250, TipoGaseosa.BEBIDA_COLA);
-        assertTrue(laEsquina.agregarProducto(manaosCola));
 
-    }
 
     @Test
-    public void queSePuedaEliminarBebidas() {
+    public void queSePuedaComprarBebidas() {
 
         Almacen laEsquina = new Almacen();
         Gaseosa manaosCola = new Gaseosa(100.00, Marca.MANAOS, CantidadMiliLitros.ML500, TipoGaseosa.BEBIDA_COLA);
@@ -42,7 +36,7 @@ public class testAlmacen {
     }
 
     @Test
-    public void calculoDelPrecio() {
+    public void	queSePuedaCalcularElPrecioDeUnaBebida() {
         Almacen laEsquina = new Almacen();
         Gaseosa manaosCola = new Gaseosa(100.00, Marca.MANAOS, CantidadMiliLitros.ML500, TipoGaseosa.BEBIDA_COLA);
         laEsquina.agregarProducto(manaosCola);
@@ -61,6 +55,19 @@ public class testAlmacen {
         Boolean resultoEsperado = true;
         assertEquals(resultoEsperado, puedeTomar);
     
+    }
+    
+    @Test 
+    public void queLaBebidaEnPromocionCueste10PorCientoMenos() {
+    	 Almacen laEsquina = new Almacen();
+    	 Gaseosa manaosCola = new Gaseosa(100.00, Marca.MANAOS, CantidadMiliLitros.ML500, TipoGaseosa.BEBIDA_COLA);
+    	 laEsquina.agregarProducto(manaosCola);
+    	 // ejecucion
+    	 manaosCola.setEnPromocion(true);
+    	 Double valorEsperado = 90.0;
+    	 //comprobacion 
+    	 assertEquals(valorEsperado, manaosCola.getPrecio());
+    	 
     }
 
 }
