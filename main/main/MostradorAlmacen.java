@@ -30,7 +30,6 @@ public class MostradorAlmacen {
 			switch (opcion) {
 			case '1':
 				String marca;
-				String marca;
 				CantidadMiliLitros mililitros;
 				Double precio;
 				TipoAlcohol tipoAlcohol;
@@ -41,7 +40,7 @@ public class MostradorAlmacen {
 					System.out.println("INGRESE 1 PARA GUARDAR UNA GASEOSA");
 					System.out.println("INGRESE 2 PARA GUARDAR UNA BEBIDA CON ALCOHOL");
 					System.out.println("INGRESE 3 PARA GUARDAR AGUA");
-					opcionRepositor = teclado.next().chartAt(0);
+					opcionRepositor = teclado.next().charAt(0);
 					switch (opcionRepositor) {
 					case '1':
 						System.out.println("INGRESE SU PRECIO");
@@ -107,7 +106,7 @@ public class MostradorAlmacen {
 
 						} while (opcionTipoGaseosa != '0');
 
-						Gaseosa gaseosa = new Gaseosa(precio, marca, mililitros, tipoGaseosa);
+						Gaseosa gaseosa = new Gaseosa(precio, marca, mililitros);
 
 						if (nuevoAlmacen.agregarProducto(gaseosa)) {
 							System.out.println("SE AGREGO UNA BEBIDA A LA ESTANTERIA");
@@ -124,7 +123,7 @@ public class MostradorAlmacen {
 						marca = teclado.next();
 
 						System.out.println("DE CUANTOS MILILITROS ES");
-						char opcionMililitros = 0;
+						char opcionMililitros2 = '0';
 						do {
 							System.out.println("INGRESE 1 SI QUIERE DE 500CC");
 							System.out.println("INGRESE 2 SI QUIERE DE 1000CC");
@@ -132,7 +131,7 @@ public class MostradorAlmacen {
 							System.out.println("INGRESE 0 PARA SALIR");
 
 							opcionMililitros = teclado.next().charAt(0);
-							switch (opcionMililitros) {
+							switch (opcionMililitros2) {
 							case '1':
 								mililitros = CantidadMiliLitros.ML500;
 								break;
@@ -183,8 +182,7 @@ public class MostradorAlmacen {
 							}
 
 						} while (opcionTipoAlcohol != '0');
-						BebidaAlcoholica bebidaAlcoholica = new BebidaAlcoholica(precio, marca, mililitros,
-								tipoAlcohol);
+						BebidaAlcoholica bebidaAlcoholica = new BebidaAlcoholica(precio, marca, tipoAlcohol,mililitros);
 
 						if (nuevoAlmacen.agregarProducto(bebidaAlcoholica)) {
 							System.out.println("SE AGREGO UNA BEBIDA A LA ESTANTERIA");
@@ -308,7 +306,7 @@ public class MostradorAlmacen {
 					System.out.println("INGRESE 1 PARA VER UNA GASEOSA");
 					System.out.println("INGRESE 2 PARA VER LA LISTA DE PRECIOS");
 					System.out.println("INGRESE 3 PARA COMPRAR UNA BEBIDA ");
-					opcionesCliente = teclado.next().chartAt(0);
+					opcionesCliente = teclado.next().charAt(0);
 					switch (opcionesCliente) {
 					case '1':
 						System.out.println("INGRESE LA FILA");
