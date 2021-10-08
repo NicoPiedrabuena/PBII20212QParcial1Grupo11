@@ -52,7 +52,7 @@ public class Almacen {
 	// modificar
 	// NO SE QUE HAY QUE MODIFICAR - MARCOS
 	// PARA MI YA ESTA BIEN - MARCOS
-	public Double calcularPrecioDeLaBebida(String marca, CantidadMiliLitros mililitros) {
+	public Double calcularPrecioDeLaBebida(Marca marca, CantidadMiliLitros mililitros) {
 		double precio = 0;
 
 		for (int i = 0; i < estanteria.length; i++) {
@@ -88,7 +88,8 @@ public class Almacen {
 
 	}
 
-	// calcular promocion de cada bebida
+	// calcular promocion de cada bebida independientemente de su cantidad de mililitros tendra un 10% de descuento
+	
 	/*
 	 * public Double getPromocion(String marca) { return promocion; }
 	 */
