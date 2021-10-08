@@ -1,4 +1,5 @@
 package test;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
@@ -7,7 +8,6 @@ import dominio.BebidaAlcoholica;
 import dominio.CantidadMiliLitros;
 import dominio.Gaseosa;
 import dominio.Marca;
-import dominio.TipoAlcohol;
 import dominio.TipoGaseosa;
 
 public class testAlmacen {

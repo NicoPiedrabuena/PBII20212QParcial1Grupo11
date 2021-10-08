@@ -48,7 +48,7 @@ public class Almacen {
 
 
 
-	public Double calcularPrecioDeLaBebida(String marca, CantidadMiliLitros mililitros) {
+	public Double calcularPrecioDeLaBebida(Marca marca, CantidadMiliLitros mililitros) {
 
 		double precio = 0;
 
