@@ -29,14 +29,10 @@ public class Gaseosa extends Bebida {
         }
     }
 
-    // RE VER LA PROMOCION
-
-
-
 
     public Double getPrecio() {
         if(getEnPromocion()) {
-            return super.getPrecio()0.9;
+            return super.getPrecio()*0.9;
         }else {
             return super.getPrecio();
         }
@@ -48,7 +44,7 @@ public class Gaseosa extends Bebida {
 
     public void setEnPromocion(Boolean enPromocion) {
         if (enPromocion) {
-            setPrecio(getPrecio()0.9);
+            setPrecio(getPrecio()*0.9);
         }
 
     }
@@ -84,4 +80,4 @@ public class Gaseosa extends Bebida {
     }
 
 
-}}
+}
