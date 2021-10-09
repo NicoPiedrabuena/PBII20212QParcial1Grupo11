@@ -5,46 +5,28 @@ public class Almacen {
     private Bebida[][] estanteria;
 
     public Almacen() {
-        estanteria = new Bebida[10][10];
+        estanteria = new Bebida[5][5];
     }
 
-    // falta agregar el tipo de gaseosa
-    public boolean agregarProductoSinAlcohol(Bebida bebidaa) {
-        boolean seAgregoONo = false;
+    public boolean agregarProducto(Bebida bebidaa) {
         for (int i = 0; i < estanteria.length; i++) {
             for (int j = 0; j < estanteria.length; j++) {
                 if (estanteria[i][j] == null) {
                     estanteria[i][j] = bebidaa;
-                    seAgregoONo = true;
-                    break;
+                    return true;
                 }
             }
         }
-        return seAgregoONo;
-
+        return false;
     }
 
-    // falta agregar el tipo de alchol
-    public boolean agregarProductoConAlchohol(Bebida bebidaa) {
-        boolean seAgregoONo = false;
-        for (int i = 0; i < estanteria.length; i++) {
-            for (int j = 0; j < estanteria.length; j++) {
-                if (estanteria[i][j] == null) {
-                    estanteria[i][j] = bebidaa;
-                    seAgregoONo = true;
-                    break;
-                }
-
-            }
-        }
-        return seAgregoONo;
-    }
-
-    public boolean eliminarBebida(Integer id) {
+    public boolean comprarBebida(Marca marca, CantidadMiliLitros mililitros) {
         boolean eliminadoONo = false;
         for (int i = 0; i < estanteria.length; i++) {
             for (int j = 0; j < estanteria.length; j++) {
-                if (estanteria[i][j] != null && estanteria[i][j].getId().equals(id)) {
+                if (estanteria[i][j] != null && estanteria[i][j].getMarca().equals(marca)
+                        && estanteria[i][j].getMililitros().equals(mililitros)) {
+
                     estanteria[i][j] = null;
                     eliminadoONo = true;
                     break;
@@ -54,44 +36,111 @@ public class Almacen {
         return eliminadoONo;
     }
 
-    // terminar de arreglarlo bien
-    public String mostrarBebida() {
-        String valorBebida = " ";
-        for (int i = 0; i < estanteria.length; i++) {
-            for (int j = 0; j < estanteria.length; j++) {
-                if (estanteria[i][j] != null) {
-                    valorBebida = "fila =" + i + ", columa =" + j + "bebida = " + estanteria.toString();
-                }
-            }
+    public String mostrarEstante(Integer fila, Integer columna) {
+        String informacion = null;
+
+        if (estanteria[fila][columna] != null) {
+            informacion = "fila =" + fila + ", columa =" + columna + "bebida = " + estanteria[fila][columna].toString();
         }
-        return valorBebida;
+        return informacion;
     }
 
-    //
+    public Double calcularPrecioDeLaBebida(Marca marca, CantidadMiliLitros mililitros) {
 
-    public Double calcularPrecioBebidas(String marca) {
-        double precioTotal = 0;
+        double precio = 0;
 
         for (int i = 0; i < estanteria.length; i++) {
             for (int j = 0; j < estanteria.length; j++) {
-                if (estanteria[i][j] != null && estanteria[i][j].equals(marca)) {
-
-                    precioTotal += estanteria[i][j].getPrecio();
+                if (estanteria[i][j] != null && estanteria[i][j].getMarca().equals(marca)
+                        && estanteria[i][j].getMililitros().equals(mililitros)) {
+                    precio = estanteria[i][j].getPrecio();
+                    break;
                 }
             }
         }
-        return precioTotal;
-
+        return precio;
     }
 
-    // despues en la interfaz va agregar siso
     public Boolean siEsMayor(Integer edad) {
-        Boolean puedeTomar = null;        
+        Boolean puedeTomar = false;
 
         if (edad >= 18) {
             puedeTomar = true;
         }
         return puedeTomar;
+    }
+
+    public String mostrarPrecios() {
+        String estante = "";
+
+        for (int i = 0; i < estanteria.length; i++) {
+            for (int j = 0; j < estanteria.length; j++) {
+                if (estanteria[i][j] != null) {
+                    estante += estanteria[i][j].toString();
+                } else {
+                    estante += "           VACIO         | ";
+                }
+            }
+            estante += "\n";
+        }
+        return estante;
+    }
+
+    public Gaseosa buscarGaseosa(Marca marca) {
+        Gaseosa gaseosaEncontrada = null;
+
+        for (int i = 0; i < estanteria.length; i++) {
+            for (int j = 0; j < estanteria.length; j++) {
+                if (estanteria[i][j] != null && estanteria[i][j].getMarca().equals(marca)) {
+                    gaseosaEncontrada = (Gaseosa) estanteria[i][j];
+                    break;
+                }
+            }
+            break;
+        }
+        return gaseosaEncontrada;
+    }
+
+    public BebidaAlcoholica buscarAlcohol(Marca marca) {
+        BebidaAlcoholica escabioEncontrado = null;
+        for (int i = 0; i < estanteria.length; i++) {
+            for (int j = 0; j < estanteria.length; j++) {
+                if (estanteria[i][j] != null && estanteria[i][j].getMarca().equals(marca)) {
+                    escabioEncontrado = (BebidaAlcoholica) estanteria[i][j];
+                    break;
+                }
+            }
+            break;
+        }
+        return escabioEncontrado;
+    }
+
+    public String mostrarBebidas(Marca marca) {
+        String informacion = null;
+        for (int i = 0; i < estanteria.length; i++) {
+            for (int j = 0; j < estanteria.length; j++) {
+                if (estanteria[i][j] != null && estanteria[i][j].getMarca().equals(marca)) {
+                    informacion += estanteria[i][j].toString() + " ";
+
+                }
+            }
+
+        }
+        return informacion;
+    }
+
+    public Agua buscarAgua(Marca marca) {
+        Agua agua = null;
+        for (int i = 0; i < estanteria.length; i++) {
+            for (int j = 0; j < estanteria.length; j++) {
+                if (estanteria[i][j] != null && estanteria[i][j].getMarca().equals(marca)) {
+                    agua = (Agua) estanteria[i][j];
+                    break;
+                }
+            }
+            break;
+        }
+        return agua;
     }
 
 }
