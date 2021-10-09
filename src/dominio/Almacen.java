@@ -37,7 +37,7 @@ public class Almacen {
 	}
 
 	public String mostrarEstante(Integer fila, Integer columna) {
-		String informacion = " ";
+		String informacion = null;
 
 		if (estanteria[fila][columna] != null) {
 			informacion = "fila =" + fila + ", columa =" + columna + "bebida = " + estanteria[fila][columna].toString();
