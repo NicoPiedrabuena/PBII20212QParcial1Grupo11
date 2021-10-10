@@ -1,5 +1,5 @@
 package dominio;
 
 public enum TipoDeAgua {
-	INDUSTRIAL, MINERAL;
+	INDUSTRIAL, MINERAL, DEPOSO , DELACANILLA;
 }
